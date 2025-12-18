@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    # После запуска контейнера выполните:
+    # docker exec -it <container_name> ollama pull nomic-embed-text
+    # или другую embedding модель по вашему выбору
+
+volumes:
+  ollama_data:
+
